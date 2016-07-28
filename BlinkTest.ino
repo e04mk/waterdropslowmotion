@@ -28,13 +28,13 @@ void setup() {
 void loop() {
   pot1Value = analogRead(pot1Pin);
   pot2Value = analogRead(pot2Pin);
-  digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
+  digitalWrite(led, HIGH);   	// turn the LED on
   digitalWrite(strobPin, HIGH);
-  delay(1);               
-  digitalWrite(led, LOW);    // turn the LED off by making the voltage LOW
+  delay(1);			// 1ms LED on
+  digitalWrite(led, LOW);    	// turn the LED off
   digitalWrite(strobPin, LOW);
   pot2Value = map(pot2Value, 0, 1023, 0, 255);
-  delay(pot2Value);
+  delay(pot2Value);		// TODO: Scale this value to flash just between the point of the drops to look stationary and when it travels forward and backward.
   
   // print the results to the serial monitor:
   Serial.print("pot1 = " );
